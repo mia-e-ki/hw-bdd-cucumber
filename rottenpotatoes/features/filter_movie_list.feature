@@ -26,9 +26,10 @@ Scenario: restrict to movies with 'PG' or 'R' ratings
 
   # enter step(s) to check the 'PG' and 'R' checkboxes
   When I check the following ratings: PG, R
-  When I uncheck the following ratings: PG-13, R
+  When I uncheck the following ratings: PG-13, G, NC-17
   When I press "Refresh"
   Then I should see "The Incredibles"
+  Then I should see "Amelie"
 
   # enter step(s) to uncheck all other checkboxes
   #When I uncheck 'G' checkbox and uncheck 'PG-13' checkbox
