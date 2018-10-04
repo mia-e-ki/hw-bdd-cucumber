@@ -25,17 +25,20 @@ Background: movies have been added to database
 Scenario: restrict to movies with 'PG' or 'R' ratings
 
   # enter step(s) to check the 'PG' and 'R' checkboxes
-  When I check the 'PG' checkbox and check the 'R' checkbox
-  Then I should see the 'PG' and 'R' checkboxes set to true
+  When I check the following ratings: PG, R
+  When I uncheck the following ratings: PG-13, R
+  When I press "Refresh"
+  Then I should see "The Incredibles"
+
   # enter step(s) to uncheck all other checkboxes
-  When I uncheck the 'G' checkbox and uncheck the 'PG-13' checkbox
-  Then I should see the 'G' and 'PG-13' checkboxes set to false
+  #When I uncheck 'G' checkbox and uncheck 'PG-13' checkbox
+  #Then I should see the 'G' and 'PG-13' checkboxes set to false
   # enter step to "submit" the search form on the homepage
-  When I submit the search form
+  #When I submit the search form
   # enter step(s) to ensure that PG and R movies are visible
-  Then I should see all movies with 'PG' or 'R' ratings
+  #Then I should see all movies with 'PG' or 'R' ratings
   # enter step(s) to ensure that other movies are not visible
-  And I should not see any movies with 'G' or 'PG-13' ratings
+  #And I should not see any movies with 'G' or 'PG-13' ratings
 
 Scenario: all ratings selected
   # see assignment
