@@ -30,6 +30,7 @@ Scenario: restrict to movies with 'PG' or 'R' ratings
   And I press "Refresh"
   Then I should see "The Incredibles"
   And I should see "Amelie"
+  And I should not see "Chocolat"
 
   # enter step(s) to uncheck all other checkboxes
   #When I uncheck 'G' checkbox and uncheck 'PG-13' checkbox
