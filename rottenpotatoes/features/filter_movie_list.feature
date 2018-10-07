@@ -26,13 +26,14 @@ Scenario: restrict to movies with 'PG' or 'R' ratings
 
   # enter step(s) to check the 'PG' and 'R' checkboxes
   When I check the following ratings: PG, R
-  When I uncheck the following ratings: PG-13, G, NC-17
-  When I press "Refresh"
+  And I uncheck the following ratings: PG-13, G, NC-17
+  And I press "Refresh"
   Then I should see "The Incredibles"
-  Then I should see "Amelie"
+  And I should see "Amelie"
 
   # enter step(s) to uncheck all other checkboxes
   #When I uncheck 'G' checkbox and uncheck 'PG-13' checkbox
+  #When I uncheck the following ratings: G, PG-13
   #Then I should see the 'G' and 'PG-13' checkboxes set to false
   # enter step to "submit" the search form on the homepage
   #When I submit the search form
@@ -42,4 +43,5 @@ Scenario: restrict to movies with 'PG' or 'R' ratings
   #And I should not see any movies with 'G' or 'PG-13' ratings
 
 Scenario: all ratings selected
-  # see assignment
+  When I check the following ratings: PG, R, PG-13, G, NC-17
+  Then I should see all the movies
